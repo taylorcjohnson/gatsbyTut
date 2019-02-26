@@ -1,15 +1,27 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled from 'styled-components';
+
+import gatsbyLogo from '../images/gatsby-icon.png';
+
+const HeaderWrapper = styled.div`
+  background: #524763;
+  margin-bottom: 0;
+  img {
+    margin-bottom: 0;
+  }
+`;
+
+const HeaderContainer = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1rem;
+`;
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
+  <HeaderWrapper>
+    <HeaderContainer
       style={{
         margin: `0 auto`,
         maxWidth: 960,
@@ -24,19 +36,25 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          <img
+            style={{
+              width: '100px',
+            }}
+            src={gatsbyLogo}
+            alt="Gatsby Logo"
+          />
         </Link>
       </h1>
-    </div>
-  </header>
-)
+    </HeaderContainer>
+  </HeaderWrapper>
+);
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 Header.defaultProps = {
   siteTitle: ``,
-}
+};
 
-export default Header
+export default Header;
